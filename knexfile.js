@@ -32,5 +32,18 @@ module.exports = {
     seeds: {
       directory: './data/seeds',
     }
+  },
+  staging: {
+    client: 'sqlite3',
+    connection: {
+      filename: './data/staging.db3',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations',
+    },
+    seeds: {
+      directory: './data/seeds',
+    }
   }
 };
