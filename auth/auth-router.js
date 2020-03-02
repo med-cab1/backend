@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
     Users.add(user)
         .then(saved => {
             const token = genToken(saved);
-            res.status(201).json({ created_user: saved, token: token });
+            res.status(201).json({ username: saved.username, token: token });
         })
         .catch(err => {
             res.status(500).json({ errorMessage: err});
@@ -37,13 +37,16 @@ router.post('/login', (req, res) => {
             } else {
                 res.status(401).json({ message: 'Invalid Credentials' });
             }
+        })
+        .catch(err => {
+            res.status(500).json({ errorMessage: err });
         });
 });
 
-function genToken() {
+function genToken(user) {
     const payload = {
         userid: user.id,
-        username: user.username,
+        username: user.username
     };
 
     const options = { expiresIn: '1h' };

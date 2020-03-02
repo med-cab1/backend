@@ -3,6 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const Users = require('./users-model');
+const cannabisRouter = require('../cannabis/cannabis-router');
+
+router.use('/cannabis', cannabisRouter);
 
 // retrieve users
 router.get('/', (req, res) => {
@@ -14,8 +17,6 @@ router.get('/', (req, res) => {
             res.status(401).json({ errorMessage: err });
         });
 });
-
-
 
 // delete user
 router.post('/:id', (req, res) => {
