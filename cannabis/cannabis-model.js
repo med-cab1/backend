@@ -6,7 +6,7 @@ function getRecommendations(user_id) {
 };
 
 async function addRecommendations(recommendation) {
-    const [id] = await db('recommendations').insert(recommendation);
+    const [id] = await db('recommendations').insert(recommendation, 'id');
     return id;
 };
 
