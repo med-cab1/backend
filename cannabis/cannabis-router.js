@@ -72,7 +72,7 @@ router.post('/:id/recommendations', (req, res) => {
 router.post('/prediction', (req, res) => {
     let info = req.body;
 
-    axios.post(`https://unburied-medcab.herokuapp.com/prediction?disease=${info[0]}&effect1=${info[4]}&effect2=${info[5]}&effect3=${info[6]}&effect4=${info[7]}&effect5=${info[8]}&flavor1=${info[1]}&flavor2=${info[2]}&flavor3=${info[3]}`)
+    axios.get(`https://unburied-medcab.herokuapp.com/prediction?disease=${info[0]}&effect1=${info[4]}&effect2=${info[5]}&effect3=${info[6]}&effect4=${info[7]}&effect5=${info[8]}&flavor1=${info[1]}&flavor2=${info[2]}&flavor3=${info[3]}`)
         .then(res => {
             res.status(201).json(res);
         })
