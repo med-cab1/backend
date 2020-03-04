@@ -26,7 +26,7 @@ server.get('/', (req, res) => {
 
 // implement routers
 server.use('/api/auth', authRouter);
-server.use('/api/users', usersRouter);
+server.use('/api/users', authenticate, usersRouter);
 
 module.exports = server;
 
