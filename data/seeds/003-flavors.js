@@ -1,0 +1,60 @@
+
+exports.seed = function(knex) {
+  // Deletes ALL existing entries
+  return knex('flavors').truncate()
+    .then(function () {
+      // Inserts seed entries
+      return knex('flavors').insert([
+        {flavor: "Earthy"},
+        {flavor: "Sweet"},
+        {flavor: "Citrus"},
+        {flavor: "Flowery"},
+        {flavor:  "Violet"},
+        {flavor: "Diesel"},
+        {flavor: "Spicy/Herbal"},
+        {flavor: "Sage"},
+        {flavor: "Woody"},
+        {flavor: "Apricot"},
+        {flavor: "Grapefruit"},
+        {flavor: "Orange"},
+        {flavor: "None"},
+        {flavor: "Pungent"},
+        {flavor: "Grape"},
+        {flavor: "Pine"},
+        {flavor: "Skunk"},
+        {flavor: "Berry"},
+        {flavor: "Pepper"},
+        {flavor: "Menthol"},
+        {flavor: "Blue"},
+        {flavor: "Cheese"},
+        {flavor: "Chemical"},
+        {flavor: "Mango"},
+        {flavor: "Lemon"},
+        {flavor: "Peach"},
+        {flavor: "Vanilla"},
+        {flavor: "Nutty"},
+        {flavor: "Chestnut"},
+        {flavor: "Tea"},
+        {flavor: "Tobacco"},
+        {flavor: "Tropical"},
+        {flavor: "Strawberry"},
+        {flavor: "Blueberry"},
+        {flavor: "Mint"},
+        {flavor: "Apple"},
+        {flavor: "Honey"},
+        {flavor: "Lavender"},
+        {flavor: "Lime"},
+        {flavor: "Coffee"},
+        {flavor: "Ammonia"},
+        {flavor: "Minty"},
+        {flavor: "Tree"},
+        {flavor: "Fruit"},
+        {flavor: "Butter"},
+        {flavor: "Pineapple"},
+        {flavor: "Tar"},
+        {flavor: "Rose"},
+        {flavor: "Plum"},
+        {flavor: "Pear"}
+      ]);
+    });
+};
