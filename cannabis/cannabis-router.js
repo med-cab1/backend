@@ -77,7 +77,7 @@ router.post('/prediction', (req, res) => {
             res.status(201).json(res);
         })
         .catch(err => {
-            res.status(404).json({ errorMessage: err})
+            res.status(404).json({ errorMessage: err, info: req.body})
         })
 });
 module.exports = router;
