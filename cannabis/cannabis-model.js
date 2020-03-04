@@ -19,7 +19,7 @@ function getFlavors() {
 };
 
 function getConditions() {
-    return db('Conditions');
+    return db('conditions');
 };
 
 module.exports = {
