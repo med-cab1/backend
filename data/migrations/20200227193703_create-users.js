@@ -21,10 +21,7 @@ exports.up = function(knex) {
     .createTable('recommendations', recommendations => {
         recommendations.increments();
         recommendations.string('strain', 255).notNullable();
-        recommendations.string('intake_method', 255).notNullable();
-        recommendations.decimal('dosage_cbd');
-        recommendations.decimal('dosage_thc');
-        recommendations.string('frequency', 255).notNullable();
+        recommendations.string('info', 255).notNullable();
         recommendations.integer('user_id').unsigned().notNullable().references('users.id').onDelete('CASCADE').onUpdate('Cascade');
     })
 };
