@@ -84,7 +84,7 @@ router.post('/:id/recommendations', (req, res) => {
 router.post('/prediction', (req, res) => {
     let info = req.body;
 
-    axios.post(`https://unburied-medcab.herokuapp.com/prediction`, info)
+    axios.post(`https://unburied-medcab.herokuapp.com/altpredict`, info)
         .then(res => {
             res.status(201).json(res);
         })
