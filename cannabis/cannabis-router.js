@@ -74,11 +74,11 @@ router.post('/prediction', (req, res) => {
     let queryString = `https://unburied-medcab.herokuapp.com/prediction?disease=${info[0]}&effect1=${info[4]}&effect2=${info[5]}&effect3=${info[6]}&effect4=${info[7]}&effect5=${info[8]}&flavor1=${info[1]}&flavor2=${info[2]}&flavor3=${info[3]}`
 
     axios.get(queryString)
-        .then(res => {
-            res.status(201).json(res);
+        .then(response => {
+            res.status(201).json(response.data);
         })
         .catch(err => {
-            res.status(404).json({ errorMessage: err, info: req.body, request: queryString })
+            res.status(404).json({ errorMessage: err.message, info: req.body, request: queryString })
         })
 });
 
