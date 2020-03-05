@@ -77,7 +77,7 @@ router.post('/prediction', (req, res) => {
             res.status(201).json(res);
         })
         .catch(err => {
-            res.status(404).json({ errorMessage: err, info: req.body})
+            res.status(404).json({ errorMessage: err, info: req.body, request: `https://unburied-medcab.herokuapp.com/prediction?disease=${info[0]}&effect1=${info[4]}&effect2=${info[5]}&effect3=${info[6]}&effect4=${info[7]}&effect5=${info[8]}&flavor1=${info[1]}&flavor2=${info[2]}&flavor3=${info[3]}`})
         })
 });
 
