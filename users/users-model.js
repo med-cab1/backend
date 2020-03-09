@@ -22,6 +22,10 @@ async function add(user) {
   return findById(id);
 }
 
+function update(changes, id) {
+    return db('users').where({ id }).update(changes);
+}
+
 function findById(id) {
   return db('users')
     .where({ id })

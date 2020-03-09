@@ -17,9 +17,28 @@ router.get('/', (req, res) => {
             res.status(401).json({ errorMessage: err });
         });
 });
+// Update User
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    let changes = req.body;
+
+    if (changes.password) {
+        const hash = bcrypt.hashSync(changes.password, 10);
+        changes.password = hash;
+    }
+    
+
+    Users.update(changes, id)
+        .then(user => {
+            res.status(201).json({ user: user })
+        })
+        .catch(err => {
+            res.status(500).json({ errorMessage: err });
+        });
+});
 
 // delete user
-router.post('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const { id } = req.params;
     Users.remove(id)
         .then(del => {

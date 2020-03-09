@@ -9,7 +9,7 @@ const router = express.Router();
 
 const Users = require('../users/users-model');
 
-// register
+// Register
 router.post('/register', (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 10);
@@ -25,6 +25,7 @@ router.post('/register', (req, res) => {
         });
 });
 
+// Login
 router.post('/login', (req, res) => {
     let { username, password} = req.body;
 
@@ -43,6 +44,8 @@ router.post('/login', (req, res) => {
         });
 });
 
+
+// Generate Token
 function genToken(user) {
     const payload = {
         userid: user.id,
